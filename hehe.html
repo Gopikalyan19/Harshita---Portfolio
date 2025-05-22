@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carl Sagan - Creative Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .heading {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .project-item:hover img {
+            transform: scale(1.03);
+            transition: transform 0.3s ease;
+        }
+        .project-item img {
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="max-w-screen-sm mx-auto">
+        <!-- Header -->
+        <header class="py-6 px-4">
+            <h1 class="heading text-2xl font-medium">Carl Sagan</h1>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="mb-8">
+            <div class="bg-red-600 relative">
+                <img src="/Portfoili/Images/46ab09f8-00a0-4012-ac32-5c34d86742e8.jpeg" alt="Portrait" class="w-full h-[60vh] object-cover">
+                <div class="absolute bottom-4 left-4 text-white text-xs max-w-[200px]">
+                    <p>Creative director based in New York with over 10 years of experience in digital design</p>
+                </div>
+                <div class="absolute bottom-4 right-4 text-white text-xs">
+                    <p>2023—</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="px-4 mb-12">
+            <div class="border-t border-b border-gray-200 py-8">
+                <h2 class="heading text-4xl font-medium mb-2">Branding</h2>
+                <h2 class="heading text-4xl font-medium mb-2">UI/UX</h2>
+                <h2 class="heading text-4xl font-medium mb-2">Motion</h2>
+            </div>
+        </section>
+
+        <!-- Works Navigation -->
+        <section class="px-4 mb-4 overflow-x-auto">
+            <div class="flex space-x-4 text-sm">
+                <a href="#" class="font-medium">All</a>
+                <span>•</span>
+                <a href="#" class="text-gray-500">Works</a>
+                <span>•</span>
+                <a href="#" class="text-gray-500">Works</a>
+                <span>•</span>
+                <a href="#" class="text-gray-500">Works</a>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="mb-12">
+            <div class="grid grid-cols-2 gap-px">
+                <!-- Project 1 -->
+                <div class="project-item relative overflow-hidden">
+                    <img src="/placeholder.svg?height=300&width=300" alt="Project 1" class="w-full aspect-square object-cover">
+                    <div class="absolute bottom-2 left-2 text-xs max-w-[120px]">
+                        <p>Botanical identity for eco-friendly brand</p>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-item relative overflow-hidden">
+                    <img src="/placeholder.svg?height=300&width=300" alt="Project 2" class="w-full aspect-square object-cover">
+                    <div class="absolute bottom-2 right-2 text-xs text-right max-w-[120px]">
+                        <p>Digital experience for art gallery</p>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-item relative overflow-hidden">
+                    <img src="/placeholder.svg?height=300&width=300" alt="Project 3" class="w-full aspect-square object-cover">
+                    <div class="absolute bottom-2 left-2 text-xs max-w-[120px]">
+                        <p>Abstract visualization for music album</p>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-item relative overflow-hidden">
+                    <img src="/placeholder.svg?height=300&width=300" alt="Project 4" class="w-full aspect-square object-cover">
+                    <div class="absolute bottom-2 right-2 text-xs text-right max-w-[120px]">
+                        <p>Historical monument restoration campaign</p>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-item relative overflow-hidden">
+                    <img src="/placeholder.svg?height=300&width=300" alt="Project 5" class="w-full aspect-square object-cover">
+                    <div class="absolute bottom-2 left-2 text-xs max-w-[120px]">
+                        <p>Sunset-inspired product packaging</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section class="px-4 mb-12">
+            <h2 class="heading text-xl font-medium mb-4">Awards</h2>
+            <div class="border-t border-gray-200">
+                <div class="grid grid-cols-3 py-3 border-b border-gray-200 text-sm">
+                    <div>2023</div>
+                    <div>Webby Awards</div>
+                    <div>Best Portfolio</div>
+                </div>
+                <div class="grid grid-cols-3 py-3 border-b border-gray-200 text-sm">
+                    <div>2022</div>
+                    <div>Awwwards</div>
+                    <div>Site of the Day</div>
+                </div>
+                <div class="grid grid-cols-3 py-3 border-b border-gray-200 text-sm">
+                    <div>2022</div>
+                    <div>CSS Design Awards</div>
+                    <div>Best UI Design</div>
+                </div>
+                <div class="grid grid-cols-3 py-3 border-b border-gray-200 text-sm">
+                    <div>2021</div>
+                    <div>D&AD</div>
+                    <div>Yellow Pencil</div>
+                </div>
+                <div class="grid grid-cols-3 py-3 border-b border-gray-200 text-sm">
+                    <div>2021</div>
+                    <div>The FWA</div>
+                    <div>FWA of the Day</div>
+                </div>
+                <div class="grid grid-cols-3 py-3 border-b border-gray-200 text-sm">
+                    <div>2020</div>
+                    <div>Communication Arts</div>
+                    <div>Excellence Award</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="px-4 mb-12">
+            <h2 class="heading text-2xl font-medium mb-6">Let's talk!</h2>
+            <form>
+                <div class="mb-4">
+                    <input type="text" placeholder="Name" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black">
+                </div>
+                <div class="mb-4">
+                    <input type="email" placeholder="Email" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black">
+                </div>
+                <div class="mb-6">
+                    <textarea placeholder="Message" rows="3" class="w-full border-b border-gray-300 py-2 focus:outline-none focus:border-black"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-black text-white py-3 font-medium">Send Message</button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="px-4 py-6 flex justify-between items-center border-t border-gray-200">
+            <p class="text-sm">Carl Sagan</p>
+            <div class="flex space-x-4">
+                <a href="#" class="text-sm">↑</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

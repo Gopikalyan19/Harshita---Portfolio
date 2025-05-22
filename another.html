@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carl Sagan - Creative Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        .heading {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .project-item img {
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+        .project-item:hover img {
+            transform: scale(1.03);
+            filter: brightness(0.95);
+        }
+        .project-info {
+            transition: opacity 0.4s ease;
+        }
+        .project-item:hover .project-info {
+            opacity: 1;
+        }
+        .form-input {
+            transition: border-color 0.3s ease;
+        }
+        .form-input:focus {
+            border-color: #000;
+        }
+        .btn {
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        .btn:active {
+            transform: translateY(0);
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .page-transition {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .service-text {
+            transition: transform 0.3s ease;
+        }
+        .service-text:hover {
+            transform: translateX(10px);
+        }
+        .scroll-top {
+            transition: transform 0.3s ease;
+        }
+        .scroll-top:hover {
+            transform: translateY(-3px);
+        }
+        .skill-bar {
+            height: 3px;
+            background-color: #e5e7eb;
+            position: relative;
+        }
+        .skill-level {
+            height: 100%;
+            background-color: #000;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: width 1s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            transition: all 0.4s ease;
+        }
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            .grid-cols-3 {
+                grid-template-columns: 1fr 1fr;
+            }
+            .service-text {
+                font-size: 1.75rem;
+            }
+        }
+        @media (max-width: 640px) {
+            .grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+            .service-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="max-w-screen-sm mx-auto">
+        <!-- Header -->
+        <header class="py-6 px-4 flex justify-between items-center opacity-0" id="header">
+            <h1 class="heading text-2xl font-medium">Carl Sagan</h1>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-4 text-sm">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#works" class="nav-link">Works</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden text-xl" id="menu-toggle">☰</button>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu bg-white w-full py-4 px-4 shadow-md absolute z-10 left-0">
+            <ul class="space-y-4 text-sm">
+                <li><a href="#about" class="nav-link block">About</a></li>
+                <li><a href="#works" class="nav-link block">Works</a></li>
+                <li><a href="#skills" class="nav-link block">Skills</a></li>
+                <li><a href="#contact" class="nav-link block">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="mb-8 opacity-0" id="hero">
+            <div class="bg-red-600 relative">
+                <img src="https://source.unsplash.com/random/800x600/?cosmos" alt="Portrait" class="w-full h-[60vh] object-cover">
+                <div class="absolute bottom-4 left-4 text-white text-xs max-w-[200px]">
+                    <p>Creative director based in New York with over 10 years of experience in digital design</p>
+                </div>
+                <div class="absolute bottom-4 right-4 text-white text-xs">
+                    <p>2023—</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="px-4 mb-12 opacity-0" id="about">
+            <h2 class="heading text-2xl font-medium mb-6">About</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <p class="mb-4 text-sm leading-relaxed">
+                        I'm Carl Sagan, a creative director and designer with a passion for creating meaningful digital experiences. With over a decade of industry experience, I specialize in merging innovative design with practical functionality to create impactful brand identities and digital solutions.
+                    </p>
+                    <p class="mb-4 text-sm leading-relaxed">
+                        My approach combines strategic thinking with creative execution, allowing me to deliver unique solutions that resonate with audiences while meeting business objectives. I believe in the power of simplicity and purposeful design to communicate complex ideas.
+                    </p>
+                </div>
+                <div>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <h3 class="font-medium mb-2">Experience</h3>
+                            <p>10+ years</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium mb-2">Location</h3>
+                            <p>New York, NY</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium mb-2">Email</h3>
+                            <p>hello@carlsagan.com</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium mb-2">Education</h3>
+                            <p>MFA Design, Yale University</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="px-4 mb-12 opacity-0" id="services">
+            <div class="border-t border-b border-gray-200 py-8">
+                <h2 class="heading text-4xl font-medium mb-2 service-text cursor-pointer">Branding</h2>
+                <h2 class="heading text-4xl font-medium mb-2 service-text cursor-pointer">UI/UX</h2>
+                <h2 class="heading text-4xl font-medium mb-2 service-text cursor-pointer">Motion</h2>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="px-4 mb-12 opacity-0" id="skills">
+            <h2 class="heading text-2xl font-medium mb-6">Skills</h2>
+            <div class="grid grid-cols-1 gap-y-6">
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-medium">Brand Strategy</span>
+                        <span class="text-xs">95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level w-0" data-width="95%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-medium">UI Design</span>
+                        <span class="text-xs">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level w-0" data-width="90%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-medium">UX Research</span>
+                        <span class="text-xs">85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level w-0" data-width="85%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-medium">Motion Design</span>
+                        <span class="text-xs">75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level w-0" data-width="75%"></div>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-medium">Art Direction</span>
+                        <span class="text-xs">92%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level w-0" data-width="92%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 pt-8 border-t border-gray-200">
+                <h3 class="heading text-xl font-medium mb-4">Tools & Technologies</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-100 text-xs rounded-full">Adobe Creative Suite</span>
+                    <span class="px-3 py-1 bg-gray-100 text-xs rounded-full">Figma</span>
+                    <span class="px-3 py-1 bg-gray-100 text-xs rounded-full">Sketch</span>
+                    <span class="px-3 py-1 bg-gray-100 text-xs rounded-full">Webflow</span>
+                    <span class="px-3 py-1 bg-gray-100 text-xs rounded-full">After Effects</span>
+                    <span class="px-3 py-1 bg-gray-100 text-xs rounded-full">Cinema 4D</span>
+                    <span class="px-3 py-1 bg-gray-100 text-xs rounded-full">HTML/CSS</span>
+                    <span class="px-3 py-1 bg-gray-100 text-xs rounded-full">JavaScript</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Navigation -->
+        <section id="works" class="px-4 mb-4 overflow-x-auto opacity-0" id="works-nav">
+            <div class="flex space-x-4 text-sm">
+                <a href="#" class="nav-link active font-medium" data-filter="all">All</a>
+                <span>•</span>
+                <a href="#" class="nav-link text-gray-500" data-filter="branding">Branding</a>
+                <span>•</span>
+                <a href="#" class="nav-link text-gray-500" data-filter="digital">Digital</a>
+                <span>•</span>
+                <a href="#" class="nav-link text-gray-500" data-filter="print">Print</a>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="mb-12 opacity-0" id="projects">
+            <div class="grid grid-cols-2 gap-px" id="project-grid">
+                <!-- Project 1 -->
+                <div class="project-item relative overflow-hidden" data-category="branding">
+                    <img src="https://source.unsplash.com/random/300x300/?nature" alt="Project 1" class="w-full aspect-square object-cover">
+                    <div class="project-info absolute bottom-2 left-2 text-xs max-w-[120px]">
+                        <p>Botanical identity for eco-friendly brand</p>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-item relative overflow-hidden" data-category="digital">
+                    <img src="https://source.unsplash.com/random/300x300/?art" alt="Project 2" class="w-full aspect-square object-cover">
+                    <div class="project-info absolute bottom-2 right-2 text-xs text-right max-w-[120px]">
+                        <p>Digital experience for art gallery</p>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-item relative overflow-hidden" data-category="digital">
+                    <img src="https://source.unsplash.com/random/300x300/?music" alt="Project 3" class="w-full aspect-square object-cover">
+                    <div class="project-info absolute bottom-2 left-2 text-xs max-w-[120px]">
+                        <p>Abstract visualization for music album</p>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-item relative overflow-hidden" data-category="print">
+                    <img src="https://source.unsplash.com/random/300x300/?architecture" alt="Project 4" class="w-full aspect-square object-cover">
+                    <div class="project-info absolute bottom-2 right-2 text-xs text-right max-w-[120px]">
+                        <p>Historical monument restoration campaign</p>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-item relative overflow-hidden" data-category="branding">
+                    <img src="https://source.unsplash.com/random/300x300/?sunset" alt="Project 5" class="w-full aspect-square object-cover">
+                    <div class="project-info absolute bottom-2 left-2 text-xs max-w-[120px]">
+                        <p>Sunset-inspired product packaging</p>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-item relative overflow-hidden" data-category="print">
+                    <img src="https://source.unsplash.com/random/300x300/?typography" alt="Project 6" class="w-full aspect-square object-cover">
+                    <div class="project-info absolute bottom-2 right-2 text-xs text-right max-w-[120px]">
+                        <p>Typography-focused editorial design</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="px-4 mb-12 opacity-0" id="experience">
+            <h2 class="heading text-2xl font-medium mb-6">Experience</h2>
+            <div class="border-t border-gray-200">
+                <div class="py-4 border-b border-gray-200 hover:bg-gray-50 transition-colors duration-200">
+                    <div class="flex justify-between mb-1">
+                        <h3 class="font-medium">Creative Director</h3>
+                        <span class="text-sm">2020—Present</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Studio Cosmos, New York</p>
+                    <p class="text-xs mt-2 text-gray-500">Leading creative direction for global brands and managing a team of designers across multiple disciplines.</p>
+                </div>
+                <div class="py-4 border-b border-gray-200 hover:bg-gray-50 transition-colors duration-200">
+                    <div class="flex justify-between mb-1">
+                        <h3 class="font-medium">Senior Designer</h3>
+                        <span class="text-sm">2017—2020</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Orbital Design, San Francisco</p>
+                    <p class="text-xs mt-2 text-gray-500">Led UI/UX design for tech clients, focusing on user-centered design systems and digital experiences.</p>
+                </div>
+                <div class="py-4 border-b border-gray-200 hover:bg-gray-50 transition-colors duration-200">
+                    <div class="flex justify-between mb-1">
+                        <h3 class="font-medium">Art Director</h3>
+                        <span class="text-sm">2015—2017</span>
+                    </div>
+                    <p class="text-sm text-gray-600">Lunar Agency, Chicago</p>
+                    <p class="text-xs mt-2 text-gray-500">Developed brand identities and campaign concepts for various clients across fashion and lifestyle sectors.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section class="px-4 mb-12 opacity-0" id="awards">
+            <h2 class="heading text-xl font-medium mb-4">Awards</h2>
+            <div class="border-t border-gray-200">
+                <div class="grid grid-cols-3 py-3 border-b border-gray-200 text-sm hover:bg-gray-50 transition-colors duration-200">
+                    <div>2023</div>
+                    <div>Webby Awards</div>
+                    <div>Best Portfolio</div>
+                </div>
+                <div class="grid grid-cols-3 py-3 border-b border-gray-200 text-sm hover:bg-gray-50 transition-colors duration-200">
+                    <div>2022</div>
+                    <div>Awwwards</div>
+                    <div>Site of the Day</div>
+                </div>
+                <div class="grid grid-cols-3 py-3 border-b border-gray-200 text-sm hover:bg-gray-50 transition-colors duration-200">
+                    <div>2022</div>
+                    <div>CSS Design Awards</div>
+                    <div>Best UI Design</div>
+                </div>
+                <div class="grid grid-cols-3 py-3 border-b border-gray-200 text-sm hover:bg-gray-50 transition-colors duration-200">
+                    <div>2021</div>
+                    <div>D&AD</div>
+                    <div>Yellow Pencil</div>
+                </div>
+                <div class="grid grid-cols-3 py-3 border-b border-gray-200 text-sm hover:bg-gray-50 transition-colors duration-200">
+                    <div>2021</div>
+                    <div>The FWA</div>
+                    <div>FWA of the Day</div>
+                </div>
+                <div class="grid grid-cols-3 py-3 border-b border-gray-200 text-sm hover:bg-gray-50 transition-colors duration-200">
+                    <div>2020</div>
+                    <div>Communication Arts</div>
+                    <div>Excellence Award</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="px-4 mb-12 opacity-0" id="contact">
+            <h2 class="heading text-2xl font-medium mb-6">Let's talk!</h2>
+            <form id="contact-form">
+                <div class="mb-4">
+                    <input type="text" id="name" placeholder="Name" class="form-input w-full border-b border-gray-300 py-2 focus:outline-none" required>
+                </div>
+                <div class="mb-4">
+                    <input type="email" id="email" placeholder="Email" class="form-input w-full border-b border-gray-300 py-2 focus:outline-none" required>
+                </div>
+                <div class="mb-6">
+                    <textarea id="message" placeholder="Message" rows="3" class="form-input w-full border-b border-gray-300 py-2 focus:outline-none" required></textarea>
+                </div>
+                <button type="submit" class="btn w-full bg-black text-white py-3 font-medium">Send Message</button>
+                <p id="form-status" class="mt-4 text-sm hidden"></p>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="px-4 py-6 flex flex-col md:flex-row justify-between items-center border-t border-gray-200 opacity-0" id="footer">
+            <p class="text-sm mb-2 md:mb-0">Carl Sagan © 2023. All rights reserved.</p>
+            <div class="flex space-x-4 items-center">
+                <a href="#" class="text-sm">Instagram</a>
+                <a href="#" class="text-sm">LinkedIn</a>
+                <a href="#" class="text-sm scroll-top">↑</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="max-w-2xl w-full mx-4 bg-white p-4">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="modal-title" class="heading text-xl"></h3>
+                <button id="close-modal" class="text-2xl">&times;</button>
+            </div>
+            <div id="modal-content" class="mb-4">
+                <img id="modal-image" class="w-full h-auto mb-4" src="" alt="">
+                <p id="modal-description" class="text-sm"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Page loading animation
+            setTimeout(() => {
+                document.body.style.opacity = 1;
+                
+                const sections = [
+                    'header', 'hero', 'about', 'services', 'skills', 
+                    'works-nav', 'projects', 'experience', 'awards', 
+                    'contact', 'footer'
+                ];
+                
+                sections.forEach((id, index) => {
+                    setTimeout(() => {
+                        const element = document.getElementById(id);
+                        if (element) {
+                            element.style.opacity = 1;
+                            element.classList.add('animate-fade-in');
+                        }
+                    }, index * 150);
+                });
+                
+                // Initialize skill bars after a delay
+                setTimeout(() => {
+                    const skillLevels = document.querySelectorAll('.skill-level');
+                    skillLevels.forEach(skill => {
+                        const width = skill.getAttribute('data-width');
+                        skill.style.width = width;
+                    });
+                }, 1000);
+            }, 300);
+            
+            // Mobile menu functionality
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+            
+            // Project filtering functionality
+            const filterLinks = document.querySelectorAll('.nav-link[data-filter]');
+            const projectItems = document.querySelectorAll('.project-item');
+            
+            filterLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Update active state
+                    filterLinks.forEach(l => l.classList.remove('active', 'font-medium'));
+                    filterLinks.forEach(l => l.classList.add('text-gray-500'));
+                    this.classList.add('active', 'font-medium');
+                    this.classList.remove('text-gray-500');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    projectItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = 1;
+                            }, 100);
+                        } else {
+                            item.style.opacity = 0;
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (this.getAttribute('href') !== '#') {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 20,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Contact form functionality
+            const contactForm = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                // Simulate form submission
+                formStatus.textContent = "Sending message...";
+                formStatus.classList.remove('hidden', 'text-green-500', 'text-red-500');
+                formStatus.classList.add('text-gray-500');
+                
+                setTimeout(() => {
+                    // Simulate success
+                    formStatus.textContent = "Message sent successfully! We'll get back to you soon.";
+                    formStatus.classList.remove('text-gray-500');
+                    formStatus.classList.add('text-green-500');
+                    contactForm.reset();
+                }, 1500);
+            });
+            
+            // Project modal functionality
+            const projectModal = document.getElementById('project-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalImage = document.getElementById('modal-image');
+            const modalDescription = document.getElementById('modal-description');
+            const closeModal = document.getElementById('close-modal');
+            
+            projectItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const description = this.querySelector('.project-info p').textContent;
+                    const image = this.querySelector('img').src;
+                    
+                    modalTitle.textContent = description.split(' for ')[0];
+                    modalImage.src = image;
+                    modalDescription.textContent = description;
+                    
+                    projectModal.classList.remove('hidden');
+                    setTimeout(() => {
+                        projectModal.style.opacity = 1;
+                    }, 10);
+                });
+            });
+            
+            closeModal.addEventListener('click', function() {
+                projectModal.style.opacity = 0;
+                setTimeout(() => {
+                    projectModal.classList.add('hidden');
+                }, 300);
+            });
+            
+            // Close modal when clicking outside
+            projectModal.addEventListener('click', function(e) {
+                if (e.target === projectModal) {
+                    projectModal.style.opacity = 0;
+                    setTimeout(() => {
+                        projectModal.classList.add('hidden');
+                    }, 300);
+                }
+            });
+            
+            // Scroll to top functionality
+            const scrollTopBtn = document.querySelector('.scroll-top');
+            
+            scrollTopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Service text hover effect
+            const serviceTexts = document.querySelectorAll('.service-text');
+            
+            serviceTexts.forEach(text => {
+                text.addEventListener('click', function() {
+                    const targetSection = document.getElementById('projects');
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+           // Handle responsive behaviors
+            function handleResponsive() {
+                const width = window.innerWidth;
+                
+                // Reset mobile menu on resize
+                if (width > 768) {
+                    mobileMenu.classList.remove('active');
+                }
+            }
+            
+            window.addEventListener('resize', handleResponsive);
+            
+            // Update active navigation link on scroll
+            function updateActiveNavLink() {
+                const sections = ['about', 'works', 'skills', 'contact'];
+                const scrollPosition = window.scrollY;
+                
+                sections.forEach(sectionId => {
+                    const section = document.getElementById(sectionId);
+                    const navLink = document.querySelector(`a[href="#${sectionId}"]`);
+                    
+                    if (section && navLink) {
+                        const sectionTop = section.offsetTop - 100;
+                        const sectionBottom = sectionTop + section.offsetHeight;
+                        
+                        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                            // Remove active from all nav links
+                            document.querySelectorAll('.nav-link').forEach(link => {
+                                link.classList.remove('active');
+                            });
+                            // Add active to current section nav link
+                            document.querySelectorAll(`a[href="#${sectionId}"]`).forEach(link => {
+                                link.classList.add('active');
+                            });
+                        }
+                    }
+                });
+            }
+            
+            // Throttled scroll event listener
+            let ticking = false;
+            
+            function requestTick() {
+                if (!ticking) {
+                    requestAnimationFrame(updateActiveNavLink);
+                    ticking = true;
+                    setTimeout(() => {
+                        ticking = false;
+                    }, 100);
+                }
+            }
+            
+            window.addEventListener('scroll', requestTick);
+            
+            // Initialize
+            handleResponsive();
+        });
+    </script>
+</body>
+</html>
